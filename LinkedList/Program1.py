@@ -34,4 +34,32 @@ if __name__=='__main__':
 
     llist.deleteNodeAtPosition(6)
 
+    llist.printListRec(llist.head)
+
+    llist.insertNodeAtLast(5)
+    llist.insertNodeAtLast(6)
+    llist.insertNodeAtLast(7)
+    llist.insertNodeAtLast(8)
+    llist.insertNodeAtLast(9)
+    llist.insertNodeAtLast(10)
+
     llist.printList()
+
+    llist.swapNodes(5, 9)
+    llist.printList()
+
+    llist.swapNodes(7, 8)
+    llist.printList()
+
+    llist.swapNodes(1, 2)
+    llist.printList()
+
+    llist.reverse()
+    llist.printList()
+
+    llist1 = LinkedList()
+    llist1.insertNodeAtLast(1)
+    llist1.reverse()
+    llist1.printList()
+
+    

@@ -17,6 +17,12 @@ class LinkedList:
             temp = temp.next
         print("*******************************************************")
 
+    def printListRec(self, head):
+        if (head == None):
+            return
+        print(head.data)
+        self.printListRec(head.next)
+        
     def insertNodeAtStart(self, data):
         newNode = Node(data)
         newNode.next = self.head
@@ -72,3 +78,45 @@ class LinkedList:
             return
             
         temp.next = temp.next.next
+
+    def swapNodes(self, x, y):
+        if x == y:
+            return
+
+        prevX = None
+        currX = self.head
+        while currX != None and currX.data != x:
+            prevX = currX
+            currX = currX.next
+
+        prevY = None
+        currY = self.head
+        while currY != None and currY.data != y:
+            prevY = currY
+            currY = currY.next
+
+        if prevX == None:
+            self.head = currY
+        else:
+            prevX.next = currY
+
+        if prevY == None:
+            self.head = currX
+        else:
+            prevY.next = currX
+
+        temp = currX.next
+        currX.next = currY.next
+        currY.next = temp
+    
+    def reverse(self):
+        last = None
+        curr = self.head
+        prev = None
+        while curr != None:
+            prev = curr
+            curr = curr.next
+            prev.next = last
+            last = prev
+        self.head = prev
+        
