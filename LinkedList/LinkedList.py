@@ -1,20 +1,24 @@
 from Node import Node
-# Linked List class 
-class LinkedList: 
-     
-    # Function to initialize the Linked  
-    # List object 
-    def __init__(self):  
+# Linked List class
+
+
+class LinkedList:
+
+    # Function to initialize the Linked
+    # List object
+    def __init__(self):
         self.head = None
 
-    # This function prints contents of linked list 
-    # starting from head 
+    # This function prints contents of linked list
+    # starting from head
     def printList(self):
         print("*******************************************************")
-        temp = self.head 
+        temp = self.head
+        output = ""
         while (temp):
-            print(temp.data)
+            output = output + str(temp.data) + "  "
             temp = temp.next
+        print(output)
         print("*******************************************************")
 
     def printListRec(self, head):
@@ -22,7 +26,7 @@ class LinkedList:
             return
         print(head.data)
         self.printListRec(head.next)
-        
+
     def insertNodeAtStart(self, data):
         newNode = Node(data)
         newNode.next = self.head
@@ -33,7 +37,7 @@ class LinkedList:
         temp = self.head
         while temp != None and temp.data != prevNode:
             temp = temp.next
-        
+
         newNode.next = temp.next
         temp.next = newNode
 
@@ -44,7 +48,7 @@ class LinkedList:
         if temp == None:
             self.head = newNode
             return
-        
+
         while temp.next != None:
             temp = temp.next
         temp.next = newNode
@@ -58,7 +62,7 @@ class LinkedList:
 
         while temp.next != None and temp.next.data != data:
             temp = temp.next
-        
+
         temp.next = temp.next.next
 
     def deleteNodeAtPosition(self, index):
@@ -71,12 +75,12 @@ class LinkedList:
         while count < index-1:
             temp = temp.next
             count = count + 1
-        
+
         if temp == None:
             return
         if temp.next == None:
             return
-            
+
         temp.next = temp.next.next
 
     def swapNodes(self, x, y):
@@ -108,7 +112,7 @@ class LinkedList:
         temp = currX.next
         currX.next = currY.next
         currY.next = temp
-    
+
     def reverse(self):
         last = None
         curr = self.head
@@ -119,4 +123,3 @@ class LinkedList:
             prev.next = last
             last = prev
         self.head = prev
-        
